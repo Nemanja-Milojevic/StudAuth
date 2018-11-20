@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-flow: column;
+    align-items: center
+}
+
+.add{
+    width: 250px
+}
+
+.input{
+    width: 400px
+}
+
+.header{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}

@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    flex-flow: column;
+    align-items: center
+}
+
+.card{
+    width: 600px;
+}
+.buttons{
+    display: flex;
+    width: 600px;
+    justify-content: space-around
+}
+
+.add{
+    width: 250px
+}
+
+.list{
+    display: flex;
+    justify-content: space-between
+}
+
+.header{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}

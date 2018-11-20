@@ -1,0 +1,19 @@
+<nb-layout>
+    <nb-layout-header>
+            <div class="header">
+                    <h2>Register</h2>
+                    <button nbButton class="logout" (click) = "logout()">Logout</button>
+                  </div>
+    </nb-layout-header>
+    <nb-layout-column class="container">
+        <input [(ngModel)] = "studentData.name" name="name" class="input" nbInput placeholder="Name"><br>
+        <input [(ngModel)] = "studentData.surname" name="surname" class="input" nbInput placeholder="Surname"><br>
+        <input [(ngModel)] = "studentData.email" name="email" class="input" nbInput placeholder="E-mail"><br>
+        <input [(ngModel)] = "studentData.password" name="password" class="input" nbInput placeholder="Password"><br>
+        <input [(ngModel)] = "studentData.index" name="index" class="input" nbInput placeholder="Index"><br>
+        <button class="add" nbButton status="info" (click) = "addStudent()">Add</button><br>
+        <button class="add" nbButton status="info" routerLink = "/index">Back</button>
+
+    </nb-layout-column>
+    <nb-layout-footer>Contact us</nb-layout-footer>
+  </nb-layout>

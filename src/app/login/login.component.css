@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center
+}
+
+.input{
+    width: 400px
+}
+
+.button{
+    width: 200px
+}

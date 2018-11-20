@@ -1,0 +1,34 @@
+<nb-layout>
+    <nb-layout-header>
+        <div class="header">
+            <h2>Edit</h2>
+            <button nbButton class="logout" (click) = "logout()">Logout</button>
+          </div>
+    </nb-layout-header>
+    <nb-layout-column>
+        <h3>List</h3>
+        <nb-card size="medium">
+            <nb-card-header>
+              Students
+            </nb-card-header>
+            <nb-list>
+                <nb-list-item class="list" *ngFor = "let list of listOfStudents" (dblclick) = "labelId.value = list._id; inputName.value = list.name; inputSurname.value = list.surname; inputUsername.value = list.email; inputPassword.value = list.password; inputIndex.value = list.index">
+                    {{list.name}} {{list.surname}} {{list.index}}
+              </nb-list-item>
+            </nb-list>
+          </nb-card>
+    </nb-layout-column>
+    <nb-layout-column>
+      <h3>Control</h3>
+        <div class="container">
+          <label #labelId></label>
+          <input #inputName [(ngModel)] = "data.name" class="input" nbInput placeholder="Name"><br>
+          <input #inputSurname [(ngModel)] = "data.surname" class="input" nbInput placeholder="Surname"><br>
+          <input #inputUsername [(ngModel)] = "data.username" class="input" nbInput placeholder="Username"><br>
+          <input #inputPassword [(ngModel)] = "data.password" class="input" nbInput placeholder="Password"><br>
+          <input #inputIndex [(ngModel)] = "data.index" class="input" nbInput placeholder="Index"><br>
+          <button class="edit" nbButton status="info" (click) = "editStudent(labelId.value, data)">Edit</button><br>
+          <button class="edit" nbButton status="info" routerLink = "/index">Back</button>
+        </div>
+    </nb-layout-column>
+  </nb-layout>
