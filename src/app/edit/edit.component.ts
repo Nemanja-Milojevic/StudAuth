@@ -14,7 +14,7 @@ export class EditComponent implements OnInit {
   public data = {
     name: null,
     surname: null,
-    username: null,
+    email: null,
     password: null,
     index: null
   }

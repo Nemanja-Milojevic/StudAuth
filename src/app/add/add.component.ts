@@ -13,7 +13,7 @@ export class AddComponent implements OnInit {
   public studentData = {
     name: null,
     surname: null,
-    username: null,
+    email: null,
     password: null,
     index: null
   }
