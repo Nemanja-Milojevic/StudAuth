@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "ng build --aot --prod",
     "ng": "ng",
-    "start": "ng serve | node ./server/server",
+    "start": "ng serve --parallel node ./server/server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
