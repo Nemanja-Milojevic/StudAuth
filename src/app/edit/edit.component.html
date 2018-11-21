@@ -12,7 +12,7 @@
               Students
             </nb-card-header>
             <nb-list>
-                <nb-list-item class="list" *ngFor = "let list of listOfStudents" (dblclick) = "labelId.value = list._id; inputName.value = list.name; inputSurname.value = list.surname; inputUsername.value = list.email; inputPassword.value = list.password; inputIndex.value = list.index">
+                <nb-list-item class="list" *ngFor = "let list of listOfStudents" (dblclick) = "labelId.value = list._id; inputName.value = list.name; inputSurname.value = list.surname; inputEmail.value = list.email; inputPassword.value = list.password; inputIndex.value = list.index">
                     {{list.name}} {{list.surname}} {{list.index}}
               </nb-list-item>
             </nb-list>
@@ -23,12 +23,12 @@
         <div class="container">
           <label #labelId></label>
           <label>Double click on student to add it to form below</label>
-          <input #inputName [(ngModel)] = "data.name" class="input" nbInput placeholder="Name"><br>
-          <input #inputSurname [(ngModel)] = "data.surname" class="input" nbInput placeholder="Surname"><br>
-          <input #inputUsername [(ngModel)] = "data.email" class="input" nbInput placeholder="Username"><br>
-          <input #inputPassword [(ngModel)] = "data.password" class="input" nbInput placeholder="Password"><br>
-          <input #inputIndex [(ngModel)] = "data.index" class="input" nbInput placeholder="Index"><br>
-          <button class="edit" nbButton status="info" (click) = "editStudent(labelId.value, data)">Edit</button><br>
+          <input #inputName class="input" nbInput placeholder="Name"><br>
+          <input #inputSurname class="input" nbInput placeholder="Surname"><br>
+          <input #inputEmail class="input" nbInput placeholder="Username"><br>
+          <input #inputPassword class="input" nbInput placeholder="Password"><br>
+          <input #inputIndex class="input" nbInput placeholder="Index"><br>
+          <button class="edit" nbButton status="info" (click) = "editStudent(labelId.value, inputName.value, inputSurname.value, inputEmail.value, inputPassword.value, inputIndex.value)">Edit</button><br>
           <button class="edit" nbButton status="info" routerLink = "/index">Back</button>
         </div>
     </nb-layout-column>

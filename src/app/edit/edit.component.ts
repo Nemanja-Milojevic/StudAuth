@@ -11,14 +11,6 @@ import { AuthService } from '../auth.service';
 })
 export class EditComponent implements OnInit {
 
-  public data = {
-    name: null,
-    surname: null,
-    email: null,
-    password: null,
-    index: null
-  }
-
   public listOfStudents;
 
   constructor(private listApi: ListService, private router: Router, private auth: AuthService) { }
@@ -41,8 +33,23 @@ export class EditComponent implements OnInit {
       })
   }
 
-  editStudent(id, data){
-    this.auth.update(id, data).subscribe(
+  editStudent(id, name, surname, email, password, index){
+
+    let student = {
+      name: null,
+      surname: null,
+      email: null,
+      password: null,
+      index: null
+    }
+
+    student.name = name;
+    student.surname = surname;
+    student.email = email;
+    student.password = password;
+    student.index = index;
+
+    this.auth.update(id, student).subscribe(
       res => console.log(res),
       err => {
         if(err instanceof HttpErrorResponse){
