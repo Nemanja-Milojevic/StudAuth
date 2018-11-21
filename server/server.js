@@ -2,7 +2,7 @@ const expres = require('express')
 const bodyParser = require('body-parser') 
 const cors = require('cors')
 
-var port_number = server.listen(process.env.PORT || 3000);
+var port_number = process.env.PORT || 3000;
 
 const api = require('./routes/api')
 const app = expres()
