@@ -2,6 +2,7 @@ const expres = require('express')
 const bodyParser = require('body-parser') 
 const cors = require('cors')
 const path = require('path')
+const dir = require('../../ngApp/')
 
 // const port = process.env.PORT || 3000;
 
@@ -13,7 +14,7 @@ app.use(bodyParser.json())
 
 app.use('/api', api)
 app.use('/', api)
-app.use(expres.static(path.join(__dirname, '/dist')));
+app.use(expres.static(path.join(dir, '/dist')));
 
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
