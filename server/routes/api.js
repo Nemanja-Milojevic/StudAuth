@@ -5,6 +5,8 @@ const db = "mongodb://Miloye:miloye11@ds135798.mlab.com:35798/studentdb"
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 
+const path = require('path')
+
 mongoose.connect(db, err => {
     if(err){
         console.error('Error'+err)
@@ -34,6 +36,10 @@ function verifyToken(req, res, next){
 router.get('/', (req, res) => {
     res.send('From api route')
 })
+
+routes.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+  });
 
 router.post('/add', verifyToken, (req, res) => {
     let userData = req.body
