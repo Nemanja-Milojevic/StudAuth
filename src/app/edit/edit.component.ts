@@ -11,9 +11,15 @@ import { AuthService } from '../auth.service';
 })
 export class EditComponent implements OnInit {
 
-  private data = {}
+  public data = {
+    name: null,
+    surname: null,
+    username: null,
+    password: null,
+    index: null
+  }
 
-  private listOfStudents;
+  public listOfStudents;
 
   constructor(private listApi: ListService, private router: Router, private auth: AuthService) { }
 

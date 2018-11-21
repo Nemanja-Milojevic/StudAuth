@@ -10,7 +10,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AddComponent implements OnInit {
 
-  private studentData = {}
+  public studentData = {
+    name: null,
+    surname: null,
+    username: null,
+    password: null,
+    index: null
+  }
 
   constructor(private auth: AuthService, private router: Router) { }
 

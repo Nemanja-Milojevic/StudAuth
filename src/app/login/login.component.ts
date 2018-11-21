@@ -11,7 +11,10 @@ import { NbToastStatus } from '@nebular/theme/components/toastr/model';
 })
 export class LoginComponent implements OnInit {
 
-  private loginData = {}
+  public loginData = {
+    email: null,
+    password: null
+  }
 
   constructor(private auth: AuthService, private router: Router, private toastrService: NbToastrService) { }
 

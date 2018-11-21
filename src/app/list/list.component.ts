@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 })
 export class ListComponent implements OnInit {
 
-  private listOfStudents;
+  public listOfStudents;
 
   constructor(private listApi: ListService, private router: Router, private auth: AuthService) { }
 
