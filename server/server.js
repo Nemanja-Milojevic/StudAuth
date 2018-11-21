@@ -12,6 +12,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.use('/api', api)
+app.use('/', api)
 app.use(expres.static(path.join(__dirname, '/dist')));
 
 app.listen(process.env.PORT || 3000, function(){
