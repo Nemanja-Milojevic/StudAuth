@@ -8,9 +8,9 @@
   "scripts": {
     "postinstall": "ng build --aot --prod",
     "serverstart": "node server/server",
-    "appstart": "ng serve",
+    "appstart": "ng serve -o",
     "ng": "ng",
-    "start": "npm run  appstart | npm run serverstart",
+    "start": "start npm run appstart | start npm run serverstart",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
