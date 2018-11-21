@@ -25,7 +25,7 @@
           <label>Double click on student to add it to form below</label>
           <input #inputName [(ngModel)] = "data.name" class="input" nbInput placeholder="Name"><br>
           <input #inputSurname [(ngModel)] = "data.surname" class="input" nbInput placeholder="Surname"><br>
-          <input #inputUsername [(ngModel)] = "data.username" class="input" nbInput placeholder="Username"><br>
+          <input #inputUsername [(ngModel)] = "data.email" class="input" nbInput placeholder="Username"><br>
           <input #inputPassword [(ngModel)] = "data.password" class="input" nbInput placeholder="Password"><br>
           <input #inputIndex [(ngModel)] = "data.index" class="input" nbInput placeholder="Index"><br>
           <button class="edit" nbButton status="info" (click) = "editStudent(labelId.value, data)">Edit</button><br>
