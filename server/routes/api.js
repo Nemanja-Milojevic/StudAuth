@@ -33,11 +33,8 @@ function verifyToken(req, res, next){
     next()
 }
 
-router.get('/', (req, res) => {
-    res.send('From api route')
-})
 
-router.get('*', function (req, res) {
+router.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/index.html'));
   });
 
