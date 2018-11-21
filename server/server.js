@@ -2,7 +2,7 @@ const expres = require('express')
 const bodyParser = require('body-parser') 
 const cors = require('cors')
 const path = require('path')
-const dir = require('../../ngApp/')
+const dir = require('../')
 
 // const port = process.env.PORT || 3000;
 
