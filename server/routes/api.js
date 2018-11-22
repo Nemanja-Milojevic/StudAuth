@@ -34,10 +34,13 @@ function verifyToken(req, res, next){
     next()
 }
 
-
 router.get('/', function (req, res) {
-    app.use(express.static(path.join(__dirname, '../../dist/ngApp/index.html')));
+    res.render(path.join(__dirname + '../../dist/ngApp/index.html'));
   });
+
+// router.get('/', function (req, res) {
+//     app.use(express.static(path.join(__dirname, '../../dist/ngApp/index.html')));
+//   });
 
 router.post('/add', verifyToken, (req, res) => {
     let userData = req.body

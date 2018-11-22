@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ListService {
 
-  private getUrl = "https://student-crude-auth.herokuapp.com/api/getall";
+  private getUrl = "https://localhost:3000/api/getall";
 
   constructor(private http: HttpClient) { }
 
