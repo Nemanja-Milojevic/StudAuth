@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const db = "mongodb://Miloye:miloye11@ds135798.mlab.com:35798/studentdb"
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
+const app = express()
 
 const path = require('path')
 
@@ -35,7 +36,7 @@ function verifyToken(req, res, next){
 
 
 router.get('/', function (req, res) {
-    app.use(expres.static(path.join(__dirname, '../../dist/ngApp/index.html')));
+    app.use(express.static(path.join(__dirname, '../../dist/ngApp/index.html')));
   });
 
 router.post('/add', verifyToken, (req, res) => {
