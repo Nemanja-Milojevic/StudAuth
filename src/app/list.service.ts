@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ListService {
 
-  private getUrl = "http://localhost:3000/api/getall";
+  private getUrl = `http://localhost:${process.env.PORT}/api/getall`
 
   constructor(private http: HttpClient) { }
 

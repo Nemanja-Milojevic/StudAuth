@@ -10,8 +10,8 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private registerUrl = "http://localhost:3000/api/add";
-  private loginUrl = "http://localhost:3000/api/login";
+  private registerUrl = `http://localhost:${process.env.PORT}/api/add`
+  private loginUrl = `http://localhost:${process.env.PORT}/api/login`
 
   constructor(private http: HttpClient) { }
 
@@ -24,11 +24,11 @@ export class AuthService {
   }
 
   delete(data){
-    return this.http.delete<any>(`http://localhost:3000/api/${data}/delete`, httpOptions)
+    return this.http.delete<any>(`http://localhost:${process.env.PORT}/api/${data}/delete`, httpOptions)
   }
 
   update(id, data){
-    return this.http.put<any>(`http://localhost:3000/api/${id}/update`, data, httpOptions)
+    return this.http.put<any>(`http://localhost:${process.env.PORT}/api/${id}/update`, data, httpOptions)
     }
 
   loggedIn(){

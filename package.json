@@ -10,7 +10,7 @@
     "serverstart": "node server/server",
     "appstart": "ng serve",
     "ng": "ng",
-    "start": "npm run serverstart",
+    "start": "npm run serverstart | npm run appstart",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
