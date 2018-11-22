@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       res => {
         localStorage.setItem('token', res.token)
         this.router.navigate(['/index'])
-        console.log(res)
+        this.loginData = null
       },
       err => {
         this.showToast()

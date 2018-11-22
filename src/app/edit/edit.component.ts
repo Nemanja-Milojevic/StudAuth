@@ -59,6 +59,9 @@ export class EditComponent implements OnInit {
         }
       }
     )
+
+    student = null
+
     setTimeout(() => {
       this.get()
     }, 100);

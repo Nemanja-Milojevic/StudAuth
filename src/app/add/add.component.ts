@@ -28,7 +28,7 @@ export class AddComponent implements OnInit {
       res => {
         localStorage.setItem('token', res.token)
         this.router.navigate(['/index'])
-        console.log(res)
+        this.studentData = null
       },
       err => {
         if(err instanceof HttpErrorResponse){
