@@ -10,8 +10,8 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private registerUrl = `http://localhost:${process.env.PORT}/api/add`
-  private loginUrl = `http://localhost:${process.env.PORT}/api/login`
+  private registerUrl = `https://student-crude-auth.herokuapp.com/api/add`
+  private loginUrl = "https://student-crude-auth.herokuapp.com/api/login";
 
   constructor(private http: HttpClient) { }
 
@@ -24,11 +24,11 @@ export class AuthService {
   }
 
   delete(data){
-    return this.http.delete<any>(`http://localhost:${process.env.PORT}/api/${data}/delete`, httpOptions)
+    return this.http.delete<any>(`https://student-crude-auth.herokuapp.com/api/${data}/delete`, httpOptions)
   }
 
   update(id, data){
-    return this.http.put<any>(`http://localhost:${process.env.PORT}/api/${id}/update`, data, httpOptions)
+    return this.http.put<any>(`https://student-crude-auth.herokuapp.com/api/${id}/update`, data, httpOptions)
     }
 
   loggedIn(){
