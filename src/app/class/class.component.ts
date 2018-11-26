@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ListService } from '../list.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { ClassroomService } from '../classroom.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  selector: 'app-class',
+  templateUrl: './class.component.html',
+  styleUrls: ['./class.component.css']
 })
-export class ListComponent implements OnInit {
+export class ClassComponent implements OnInit {
+
+  public classes
 
   items = [
     {
@@ -42,19 +43,15 @@ export class ListComponent implements OnInit {
     }
   ]
 
-  public listOfStudents;
-
-  constructor(private listApi: ListService, private router: Router, private auth: AuthService) { }
+  constructor(private cls: ClassroomService, private router: Router) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.get()
-    }, 100);
+    this.get()
   }
 
   get(){
-    this.listApi.getStudents().subscribe(
-      res => this.listOfStudents = res,
+    this.cls.get().subscribe(
+      res => this.classes = res,
       err => {
         if(err instanceof HttpErrorResponse){
           if(err.status === 401){
@@ -65,8 +62,20 @@ export class ListComponent implements OnInit {
       )
   }
 
-  deleteStudent(id){
-    this.auth.delete(id).subscribe(
+  deleteClass(id){
+    this.cls.delete(id).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => {
+        if(err instanceof HttpErrorResponse){
+          if(err.status === 401){
+            this.router.navigate(['/login'])
+          }
+        }
+      }
+    )
+    this.cls.updateDel(id).subscribe(
       res => {
         console.log(res)
       },
@@ -81,6 +90,16 @@ export class ListComponent implements OnInit {
     setTimeout(() => {
       this.get()
     }, 100);
+  }
+
+  addStudent(id) {
+    this.cls.changeMessage(id)
+    this.router.navigate(['/add'])
+  }
+
+  showStudents(id) {
+    this.cls.changeMessage(id)
+    this.router.navigate(['/students'])
   }
 
   logout(){

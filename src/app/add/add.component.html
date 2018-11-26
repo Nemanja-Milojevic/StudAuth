@@ -10,10 +10,12 @@
         <input [(ngModel)] = "studentData.surname" name="surname" class="input" nbInput placeholder="Surname"><br>
         <input [(ngModel)] = "studentData.email" name="username" class="input" nbInput placeholder="E-mail"><br>
         <input [(ngModel)] = "studentData.password" name="password" class="input" nbInput placeholder="Password"><br>
-        <input [(ngModel)] = "studentData.index" name="index" class="input" nbInput placeholder="Index"><br>
-        <button class="add" nbButton status="info" (click) = "addStudent()">Add</button><br>
-        <button class="add" nbButton status="info" routerLink = "/index">Back</button>
-
+        <input [(ngModel)] = "studentData.index" name="index" class="input" nbInput placeholder="Index"><br>        
+        <input [(ngModel)] = "studentData.class_id" name="index" class="input" nbInput placeholder="Class Id" disabled><br>
+        <div class="buttons">
+            <button class="button" nbButton status="info" (click) = "addStudent()">Add</button><br>
+            <button class="button" nbButton status="info" routerLink = "/class">Back</button>
+        </div>
     </nb-layout-column>
     <nb-layout-footer>Contact us</nb-layout-footer>
   </nb-layout>

@@ -4,7 +4,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule, NbCardModule, NbListModule, NbToastrModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbInputModule, NbButtonModule, NbCardModule, NbListModule, NbToastrModule, NbSidebarModule, NbMenuModule } from '@nebular/theme';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
@@ -13,7 +13,10 @@ import { AddComponent } from './add/add.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
-import { EditComponent } from './edit/edit.component'
+import { EditComponent } from './edit/edit.component';
+import { ClassComponent } from './class/class.component';
+import { AddclassComponent } from './addclass/addclass.component';
+import { StudentsComponent } from './students/students.component'
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { EditComponent } from './edit/edit.component'
     LoginComponent,
     ListComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    ClassComponent,
+    AddclassComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ import { EditComponent } from './edit/edit.component'
     NbCardModule,
     NbListModule,
     NbToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
   ],
   providers: [ListService, AuthService, AuthGuard, 
   {

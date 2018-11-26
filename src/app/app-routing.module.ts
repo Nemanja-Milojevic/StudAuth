@@ -5,6 +5,9 @@ import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { AuthGuard } from './auth.guard';
 import { EditComponent } from './edit/edit.component';
+import { ClassComponent } from './class/class.component';
+import { AddclassComponent } from './addclass/addclass.component';
+import { StudentsComponent } from './students/students.component';
 
 const routes: Routes = [
   {
@@ -25,6 +28,21 @@ const routes: Routes = [
   {
     path: 'login', 
     component: LoginComponent
+  },
+  {
+    path: 'class', 
+    component: ClassComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'addclass', 
+    component: AddclassComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'students', 
+    component: StudentsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**', 

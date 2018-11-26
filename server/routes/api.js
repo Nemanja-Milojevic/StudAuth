@@ -3,6 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const db = "mongodb://Miloye:miloye11@ds135798.mlab.com:35798/studentdb"
 const User = require('../models/user')
+const Class = require('../models/class')
 const jwt = require('jsonwebtoken')
 const app = express()
 
@@ -57,6 +58,19 @@ router.post('/add', verifyToken, (req, res) => {
     })
 })
 
+router.post('/addclass', verifyToken, (req, res) => {
+    let classData = req.body
+    let classroom = new Class(classData)
+
+    classroom.save((err, classes) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.status(200).send(classes)
+        }
+    })
+})
+
 router.post('/login', (req, res) => {
     let userData = req.body
 
@@ -89,8 +103,38 @@ router.get('/getall', verifyToken, (req, res) => {
     })
 })
 
+router.get('/getclass', verifyToken, (req, res) => {
+    Class.find({}, (err, classroom) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.status(200).send(classroom)
+        }
+    })
+})
+
+router.get('/:id/getstudentbyclassid', verifyToken, (req, res) => {
+    User.find({class_id: req.params.id}, (err, user) => {
+        if(err){
+            console.log(err)
+        }else{
+            res.status(200).send(user)
+        }
+    })
+})
+
 router.delete('/:id/delete', (req, res) => {
     User.findByIdAndDelete(req.params.id, err => {
+        if(err){
+            console.log('err')
+        }else{
+            res.send('Deleted successfully')
+        }
+    })
+})
+
+router.delete('/:id/deleteclass', (req, res) => {
+    Class.findByIdAndDelete(req.params.id, err => {
         if(err){
             console.log('err')
         }else{
@@ -103,6 +147,16 @@ router.put('/:id/update', (req, res) => {
     User.findByIdAndUpdate(req.params.id, {$set: req.body}, err => {
         if(err){
             console.log('err')
+        }else{
+            res.send('Product updated')
+        }
+    })
+})
+
+router.put('/:id/updatedel', (req, res) => {
+    User.update({class_id: req.params.id}, {class_id: null}, err => {
+        if(err){
+            console.log(err)
         }else{
             res.send('Product updated')
         }

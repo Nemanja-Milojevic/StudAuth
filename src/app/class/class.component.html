@@ -1,0 +1,32 @@
+<nb-layout>
+    <nb-layout-header>
+      <div class="header">
+        <h2>Crude</h2>
+        <button nbButton class="logout" (click) = "logout()">Logout</button>
+      </div>
+    </nb-layout-header>
+    <nb-sidebar class="sidebar">
+        <nb-menu [items]="items">
+        </nb-menu>
+    </nb-sidebar>
+    <nb-layout-column class="container">
+      <nb-card size="medium" class="card">
+        <nb-card-header>
+          Classes
+        </nb-card-header>
+        <nb-list>
+          <nb-list-item class="list" *ngFor = "let list of classes">
+            <div>
+              {{list.name}}
+            </div>
+            <div>
+              <button class="delete" nbButton status="info" (click) = "showStudents(list._id)">Show studnets</button>
+              <button class="delete" nbButton status="info" (click) = "addStudent(list._id)">Add student</button>
+              <button class="delete" nbButton status="danger" (click) = "deleteClass(list._id)">Delete</button>
+            </div>
+          </nb-list-item>
+        </nb-list>
+      </nb-card>
+    </nb-layout-column>
+    <nb-layout-footer>Contact us</nb-layout-footer>
+  </nb-layout>

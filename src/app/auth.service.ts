@@ -10,28 +10,25 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private registerUrl = `https://student-crude-auth.herokuapp.com/api/add`
-  private loginUrl = "https://student-crude-auth.herokuapp.com/api/login";
-
-  // private registerUrl = `https://localhost:3000/api/add`
-  // private loginUrl = "https://localhost:3000/api/login";
+  // private url = "https://student-crude-auth.herokuapp.com/api/"
+  private url = "http://localhost:3000/api/"
 
   constructor(private http: HttpClient) { }
 
   add(data){
-    return this.http.post<any>(this.registerUrl, data)
+    return this.http.post<any>(this.url + 'add', data)
   }
 
   login(data){
-    return this.http.post<any>(this.loginUrl, data)
+    return this.http.post<any>(this.url + 'login', data)
   }
 
   delete(data){
-    return this.http.delete<any>(`https://student-crude-auth.herokuapp.com/api/${data}/delete`, httpOptions)
+    return this.http.delete<any>(this.url + `${data}/delete`, httpOptions)
   }
 
   update(id, data){
-    return this.http.put<any>(`https://student-crude-auth.herokuapp.com/api/${id}/update`, data, httpOptions)
+    return this.http.put<any>(this.url + `${id}/update`, data, httpOptions)
     }
 
   loggedIn(){

@@ -1,0 +1,16 @@
+<nb-layout>
+    <nb-layout-header>
+            <div class="header">
+                    <h2>Register</h2>
+                    <button nbButton class="logout" (click) = "logout()">Logout</button>
+                  </div>
+    </nb-layout-header>
+    <nb-layout-column class="container">
+        <input [(ngModel)] = "classData.name" name="name" class="input" nbInput placeholder="Name"><br>
+        <div class="buttons">
+                <button class="button" nbButton status="info" (click) = "addClass()">Add</button><br>
+                <button class="button" nbButton status="info" routerLink = "/class">Back</button>
+            </div>
+    </nb-layout-column>
+    <nb-layout-footer>Contact us</nb-layout-footer>
+  </nb-layout>

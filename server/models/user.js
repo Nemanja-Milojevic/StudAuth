@@ -6,7 +6,8 @@ const userSchema = new Schema({
     password: String,
     name: String,
     surname: String,
-    index: String
+    index: String,
+    class_id: String
 })
 
 module.exports = mongoose.model('user', userSchema, 'students')
