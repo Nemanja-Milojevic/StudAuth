@@ -154,7 +154,7 @@ router.put('/:id/update', (req, res) => {
 })
 
 router.put('/:id/updatedel', (req, res) => {
-    User.update({class_id: req.params.id}, {class_id: null}, err => {
+    User.updateMany({class_id: req.params.id}, {class_id: null}, err => {
         if(err){
             console.log(err)
         }else{

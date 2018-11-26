@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class ListService {
 
   
-  // private url = "https://student-crude-auth.herokuapp.com/api/getall"
-  private url = "http://localhost:3000/api/getall"
+  private url = "https://student-crude-auth.herokuapp.com/api/getall"
+  // private url = "http://localhost:3000/api/getall"
 
   constructor(private http: HttpClient) { }
 

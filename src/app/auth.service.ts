@@ -10,8 +10,8 @@ const httpOptions = {
 })
 export class AuthService {
 
-  // private url = "https://student-crude-auth.herokuapp.com/api/"
-  private url = "http://localhost:3000/api/"
+  private url = "https://student-crude-auth.herokuapp.com/api/"
+  // private url = "http://localhost:3000/api/"
 
   constructor(private http: HttpClient) { }
 
