@@ -34,10 +34,6 @@ export class ClassComponent implements OnInit {
         {
           title: 'All students',
           link: '/index',
-        },
-        {
-          title: 'Add student',
-          link: '/add'
         }
       ],
     }
@@ -46,7 +42,9 @@ export class ClassComponent implements OnInit {
   constructor(private cls: ClassroomService, private router: Router) { }
 
   ngOnInit() {
-    this.get()
+    setTimeout(() => {
+      this.get()
+    }, 200);
   }
 
   get(){
@@ -89,7 +87,7 @@ export class ClassComponent implements OnInit {
     )
     setTimeout(() => {
       this.get()
-    }, 100);
+    }, 200);
   }
 
   addStudent(id) {

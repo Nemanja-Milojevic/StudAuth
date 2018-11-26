@@ -20,10 +20,13 @@ export class AddComponent implements OnInit {
     class_id: null
   }
 
+  public message
+
   constructor(private auth: AuthService, private router: Router, private cls: ClassroomService) { }
 
   ngOnInit() {
-    this.cls.currentMessage.subscribe(message => this.studentData.class_id = message)
+    this.cls.currentMessage.subscribe(message => this.message = message)
+    this.studentData.class_id = this.message
   }
 
   addStudent(){

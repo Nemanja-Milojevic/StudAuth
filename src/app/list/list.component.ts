@@ -33,28 +33,38 @@ export class ListComponent implements OnInit {
         {
           title: 'All students',
           link: '/index',
-        },
-        {
-          title: 'Add student',
-          link: '/add'
         }
       ],
     }
   ]
 
   public listOfStudents;
+  public loggedIn;
 
   constructor(private listApi: ListService, private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
     setTimeout(() => {
       this.get()
-    }, 100);
+    }, 200);
   }
 
   get(){
     this.listApi.getStudents().subscribe(
       res => this.listOfStudents = res,
+      err => {
+        if(err instanceof HttpErrorResponse){
+          if(err.status === 401){
+            this.router.navigate(['/login'])
+          }
+        }
+      }
+      )
+  }
+
+  getLogged(){
+    this.auth.getLoggedIn().subscribe(
+      res => this.loggedIn = res,
       err => {
         if(err instanceof HttpErrorResponse){
           if(err.status === 401){
@@ -80,7 +90,7 @@ export class ListComponent implements OnInit {
     )
     setTimeout(() => {
       this.get()
-    }, 100);
+    }, 200);
   }
 
   logout(){

@@ -103,6 +103,27 @@ router.get('/getall', verifyToken, (req, res) => {
     })
 })
 
+router.get('/getloggedin', verifyToken, (req, res) => {
+    if (req.headers && req.headers.authorization) {
+        let authorization = req.headers.authorization.split(' ')[1]
+        let decoded
+        try {
+            decoded = jwt.verify(authorization, 'secretKey');
+        } catch (e) {
+            return res.status(401).send('unauthorized');
+        }
+        let userId = decoded;
+        // Fetch the user by id 
+        User.findOne({_id: userId}, (err, logedUser) => {
+            if(err){
+                console.log(err)
+            }else{
+                res.status(200).send(logedUser)
+            }
+        })
+    }
+})
+
 router.get('/getclass', verifyToken, (req, res) => {
     Class.find({}, (err, classroom) => {
         if(err){

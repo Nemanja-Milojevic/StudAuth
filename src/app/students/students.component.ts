@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClassroomService } from '../classroom.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-students',
@@ -31,10 +33,6 @@ export class StudentsComponent implements OnInit {
         {
           title: 'All students',
           link: '/index',
-        },
-        {
-          title: 'Add student',
-          link: '/add'
         }
       ],
     }
@@ -43,15 +41,35 @@ export class StudentsComponent implements OnInit {
   public id
   public students
 
-  constructor(private router: Router, private cls: ClassroomService) { }
+  constructor(private router: Router, private cls: ClassroomService, private auth: AuthService) { }
 
   ngOnInit() {
     this.cls.currentMessage.subscribe(message => this.id = message)
-    this.get()
+    setTimeout(() => {
+      this.get()
+    }, 200);
   }
 
   get(){
     this.cls.getByClassId(this.id).subscribe(res => this.students = res)
+  }
+
+  deleteStudent(id){
+    this.auth.delete(id).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => {
+        if(err instanceof HttpErrorResponse){
+          if(err.status === 401){
+            this.router.navigate(['/login'])
+          }
+        }
+      }
+    )
+    setTimeout(() => {
+      this.get()
+    }, 200);
   }
 
   logout(){

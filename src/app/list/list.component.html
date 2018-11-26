@@ -1,7 +1,7 @@
 <nb-layout>
-  <nb-layout-header>
+  <nb-layout-header subheader>
     <div class="header">
-      <h2>Crude</h2>
+      <h2>Students</h2>
       <button nbButton class="logout" (click) = "logout()">Logout</button>
     </div>
   </nb-layout-header>
@@ -11,9 +11,6 @@
   </nb-sidebar>
   <nb-layout-column class="container">
     <nb-card size="medium" class="card">
-      <nb-card-header>
-        Students
-      </nb-card-header>
       <nb-list>
         <nb-list-item class="list" *ngFor = "let list of listOfStudents">
           {{list.name}} {{list.surname}} {{list.index}}
@@ -21,10 +18,6 @@
         </nb-list-item>
       </nb-list>
     </nb-card>
-    <!-- <div class="buttons"> 
-      <button class="button" routerLink = "/add" nbButton status="info">Add</button>
-      <button class="button" routerLink = "/edit" nbButton status="info">Edit</button>
-    </div> -->
   </nb-layout-column>
   <nb-layout-footer>Contact us</nb-layout-footer>
 </nb-layout>

@@ -19,6 +19,10 @@ export class AuthService {
     return this.http.post<any>(this.url + 'add', data)
   }
 
+  getLoggedIn(){
+    return this.http.get<any>(this.url + 'getloggedin')
+  }
+
   login(data){
     return this.http.post<any>(this.url + 'login', data)
   }

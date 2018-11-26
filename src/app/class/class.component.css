@@ -19,13 +19,14 @@
 
 .list{
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;    
+    align-items: center;
 }
 
 .buttons{
     display: flex;
-    width: 50%;
-    justify-content: space-around
+    width: 65%;
+    justify-content: space-between
 }
 
 .button{
